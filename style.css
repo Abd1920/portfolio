@@ -406,31 +406,6 @@ footer {
     color: #fff;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .intro h1 {
-        font-size: 2.5rem;
-    }
-
-    .intro p {
-        font-size: 1.1rem;
-    }
-
-    nav ul {
-        gap: 1rem;
-    }
-
-    .section-content {
-        padding: 2rem;
-    }
-
-    .projects-grid,
-    .services-grid,
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
@@ -450,5 +425,104 @@ html {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+
+/* Responsive Design */
+/* Tablets & small screens */
+@media (max-width: 768px) {
+
+    /* Intro Section */
+    .intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .intro p {
+        font-size: 1.1rem;
+    }
+
+    /* Navigation */
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    /* Section content padding */
+    .section-content {
+        padding: 2rem;
+    }
+
+    /* Grids */
+    .projects-grid,
+    .services-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Footer Contact Info */
+    .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+
+    /* Intro Section */
+    .intro h1 {
+        font-size: 2rem;
+    }
+
+    .intro .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+
+    /* Profile photo smaller */
+    .profile-photo {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Navigation as column */
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Grids full width, smaller gaps */
+    .projects-grid,
+    .services-grid,
+    .skills-grid {
+        gap: 1rem;
+    }
+
+    /* Form adjustments */
+    .contact-form {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .submit-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    /* Footer Contact Info stacked */
+    .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
     }
 }
