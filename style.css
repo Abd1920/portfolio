@@ -568,8 +568,31 @@ html {
 
     /* Navigation as column */
     nav ul {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 320px;
+        background: white;
+        padding: 1.2rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+        z-index: 1000;
+        text-align: center;
+    }
+
+    nav ul.show {
+        display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
+    }
+
+    .menu-toggle {
+        position: relative;
+        z-index: 1002;
+        user-select: none;
     }
 
     /* Grids full width, smaller gaps */
