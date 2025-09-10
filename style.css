@@ -28,7 +28,7 @@ header {
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-    padding: 8px;
+    padding: 12px;
 }
 
 nav {
@@ -46,8 +46,9 @@ nav ul {
 
 nav a {
     text-decoration: none;
+    font-size: 1.2rem;
     color: #b4aeae;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.5rem 1rem;
     border-radius: 25px;
     transition: all 0.3s ease;
