@@ -2,26 +2,53 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
   const navLinks = document.getElementById("nav-links");
-  const navItems = navLinks.querySelectorAll("a");
 
-  // Toggle menu when hamburger is clicked
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
+  if (!menuToggle || !navLinks) return; // safety
 
-    // Change symbol from ☰ to ✖ and back
-    if (menuToggle.textContent === "☰") {
-      menuToggle.textContent = "✖";
-    } else {
+  // Ensure the button is above the menu so clicks don't hit a big invisible area
+  menuToggle.style.zIndex = 1002;
+  navLinks.style.zIndex = 1001;
+
+  // Toggle menu only when the hamburger button is clicked
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent this click from bubbling to document
+    const opened = navLinks.classList.toggle("show");
+    menuToggle.textContent = opened ? "✖" : "☰";
+    // accessibility hint
+    menuToggle.setAttribute("aria-expanded", opened ? "true" : "false");
+  });
+
+  // Prevent clicks inside the nav box from bubbling up and triggering document click handlers
+  navLinks.addEventListener("click", (e) => {
+    // If a link was clicked, close the menu (so it doesn't remain open on mobile)
+    if (e.target && e.target.tagName === "A") {
+      navLinks.classList.remove("show");
       menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-expanded", "false");
+      // allow normal link behavior (smooth scroll etc.)
+      return;
+    }
+    e.stopPropagation(); // otherwise just stop propagation
+  });
+
+  // Close the menu if user clicks anywhere outside the menu or button
+  document.addEventListener("click", (e) => {
+    if (!navLinks.classList.contains("show")) return;
+    // if click is outside navLinks AND outside the toggle button, close it
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLinks.classList.remove("show");
+      menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-expanded", "false");
     }
   });
 
-  // Close menu after clicking a link
-  navItems.forEach(link => {
-    link.addEventListener("click", () => {
+  // Close menu on Escape key (nice-to-have)
+  document.addEventListener("keyup", (e) => {
+    if (e.key === "Escape" && navLinks.classList.contains("show")) {
       navLinks.classList.remove("show");
-      menuToggle.textContent = "☰"; // revert to hamburger
-    });
+      menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
   });
 });
 
