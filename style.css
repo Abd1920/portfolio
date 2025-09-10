@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -68,12 +69,7 @@ nav a.active {
 
 /* Default: hide hamburger */
 .menu-toggle {
-    position: relative;
-    z-index: 2000;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
+    display: none;
 }
 
 /* Mobile Styles */
@@ -570,7 +566,7 @@ html {
     nav ul {
         display: none;
         position: absolute;
-        top: 50px;
+        top: 30px;
         left: 50%;
         transform: translateX(-50%);
         width: 80%;
