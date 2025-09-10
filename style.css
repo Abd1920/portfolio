@@ -501,8 +501,15 @@ html {
 
     /* Footer Contact Info */
     .contact-info {
-        flex-direction: column;
-        gap: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+    }
+
+    /* Each contact item takes 45% width to fit 2 per row */
+    .contact-info .contact-item {
+        flex: 0 0 45%;
         text-align: center;
     }
 }
@@ -553,10 +560,17 @@ html {
         padding: 0.8rem 1rem;
     }
 
-    /* Footer Contact Info stacked */
+    /* Footer Contact Info */
     .contact-info {
-        flex-direction: column;
-        gap: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+    }
+
+    /* Each contact item takes 45% width to fit 2 per row */
+    .contact-info .contact-item {
+        flex: 0 0 45%;
         text-align: center;
     }
 }

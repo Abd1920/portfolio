@@ -7,15 +7,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // Toggle menu when hamburger is clicked
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("show");
+
+    // Change symbol from ☰ to ✖ and back
+    if (menuToggle.textContent === "☰") {
+      menuToggle.textContent = "✖";
+    } else {
+      menuToggle.textContent = "☰";
+    }
   });
 
   // Close menu after clicking a link
   navItems.forEach(link => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("show");
+      menuToggle.textContent = "☰"; // revert to hamburger
     });
   });
 });
+
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
