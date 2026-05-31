@@ -769,6 +769,34 @@ html {
   }
 }
 
+.project-tech {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 10px;
+}
+
+.project-tech strong {
+  color: #667eea;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.project-tech .tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tech .tech-tags span {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
 /* Mobile Phones */
 @media (max-width: 480px) {
   /* Intro Section */
